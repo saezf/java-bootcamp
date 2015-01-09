@@ -1,0 +1,12 @@
+package com.bootcamp;
+
+public class MyPoint {           // save as "MyPoint.java"
+	// private instance variable, not accessible from outside this class
+	private int x;
+	private int y;
+	
+	public MyPoint () {
+		this.x = 0;
+		this.y = 0;
+	}
+}

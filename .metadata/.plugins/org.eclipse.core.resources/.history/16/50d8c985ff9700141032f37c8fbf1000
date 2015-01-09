@@ -1,0 +1,15 @@
+package com.bootcamp;
+
+public class MyComplexApp {        // save as "MyComplexApp.java"
+	public static void main(String[] args) {
+		MyComplex c1 = new MyComplex(1.1, 2.2); 
+		MyComplex c2 = new MyComplex(3.3, 4.4); 
+		
+		System.out.println("Number 1 is: " + c1);
+		System.out.println(c1 + ". Es un numero real puro?: " + c1.isReal());
+		System.out.println(c1 + ". No es un numero real puro?: " + c1.isImaginary());
+		System.out.println("Number 2 is: " + c2);
+		System.out.println(c2 + ". Es un numero real puro?: " + c2.isReal());
+		System.out.println(c2 + ". No es un numero real puro?: " + c2.isImaginary());
+	}
+}

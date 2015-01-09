@@ -1,0 +1,10 @@
+package com.bootcamp;
+
+public class MyPolynomial {           // save as "MyPolynomial.java"
+	private double[] coeffs;
+	public MyPolynomial(double... coeffs) {  // varargs
+	this.coeffs = coeffs;                 // varargs is treated as array
+	}
+	
+	
+}

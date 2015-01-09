@@ -1,0 +1,54 @@
+package com.bootcamp;
+
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
+public class MyComplex {           // save as "MyComplex.java"
+	private Double real;
+	private Double imag;
+	
+	public MyComplex (double x, double y) {
+		this.real = x;
+		this.imag = y;
+	}
+
+	public Double getReal() {
+		return real;
+	}
+
+	public void setReal(Double real) {
+		this.real = real;
+	}
+
+	public Double getImag() {
+		return imag;
+	}
+
+	public void setImag(Double imag) {
+		this.imag = imag;
+	}
+	
+	public void setValue(Double real, Double imag) {
+		this.real = real;
+		this.imag = imag;
+	}
+	
+	public String toString() {
+		return "( " + real + " , " + imag + " )";
+	}
+	
+	public boolean equals(double real, double imag){
+		if(this.real==real && this.imag==imag){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean equals(MyComplex another){
+		if(this.real==another.getReal() && this.imag==another.getImag()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
