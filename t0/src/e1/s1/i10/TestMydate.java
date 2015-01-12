@@ -1,17 +1,8 @@
-/**
- * 
- */
+
 package e1.s1.i10;
 
-/**
- * @author Christian db
- *
- */
 public class TestMydate {
-	static double t1;
-	static double t2;
-	static int asd;
-//static MyDate date = new MyDate(2000,10,10);
+
 	public static void main(String[] args) {
 		
 

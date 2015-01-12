@@ -1,7 +1,5 @@
 package e1.s1.i10;
 
-//import java.util.stream.IntStream;
-
 public class MyDate {
 
 	private static final int MIN_YEAR = 1;
@@ -110,37 +108,33 @@ public class MyDate {
 
 	public static int getDayOfWeek(int year, int month, int day) {
 
-		/**
-		 * 
-		 * I choosed this method with the idea of adjust the day when calendar
-		 * past from julian to gregorian But I'm getting behind with the
+		/*
+		 * I chose this method with the idea of adjust the day when calendar
+		 * past from julian to gregorian. But I'm getting behind with the
 		 * exercises, so it just gives you the day from gregorian calendar
 		 * 
 		 * If I know what day was on 1/1/1 then I just have to get how many days
 		 * have past from there the retrieve the Remainder (days % 7 = i) and
 		 * then count the days from the day of week of 1/1/1 to i which are
-		 * stored on strDays (just need to adjust first the gap with the day of
-		 * the week of 1/1/1 searched for it on the web, was a Monday (gregorian
-		 * calendar)
+		 * stored on strDays.
+		 * the day of the week of 1/1/1 (searched on the web), was a
+		 * Monday (gregorian calendar).
 		 * 
 		 * 
-		 * So I need to know how many days have past from 1/1/1 until 1/1/2015,
-		 * the retrieve the Remainder Year * (days of regular year =365) + (days
-		 * added by leap years) + (days passed = 1, in this case) leap years are
-		 * divisible 4, but no by 100 unless is divisible by 400 so to know how
-		 * many leap years have past since a date (year 4 was leap, so 1BC or
-		 * year 0 should be leap too) I consider all years divisible by 4 as
-		 * leap and then subtract the years that where divisible by 100 and add
-		 * those divisible by 400 leapYears = (Years/4) - (years/100) +
-		 * (years/400) then (2015 * 365) + 488 = 735598 then 735598 % 7 = 4 , so
-		 * taking 3 days from Thursday (1 based weeks), in the gregorian
-		 * calendar 1/1/1 was a Monday well that was convenient, I don need to
-		 * adjust the array. Sunday is 0.
+		 * So if I need to know how many days have past from 1/1/1 until
+		 * 1/1/2015, the retrieve the Remainder Year * (days of regular year
+		 * =365) + (days added by leap years) + days from current year, in this
+		 * case days passed = 1, leap years are divisible 4, but no by 100
+		 * unless is divisible by 400 so to know how many leap years have past
+		 * since a date . I'll consider all years divisible by 4 as leap and
+		 * then subtract the years that where divisible by 100 and add those
+		 * divisible by 400. leapYears = (Years/4) - (years/100) + (years/400)
+		 * then (2014 * 365) + 488 +1 = 735599 =>735599 % 7 = 4 (Thursday).
 		 */
 
 		isValidDate(year, month, day); // Throws exception if not valid
-										// daysInMonths
-		int DaysOfLastMonths;// = day;
+										
+		int DaysOfLastMonths;
 		if (year == 0) {
 			year--;
 		}// year 0 is year -1
@@ -178,8 +172,7 @@ public class MyDate {
 
 		if (lastDay == day && 12 == month) {
 
-			setDate(year + 1, 1, 1);// If wasn't valid year this will throw
-									// excep
+			setDate(year + 1, 1, 1);
 			return this;
 		}
 
@@ -188,7 +181,7 @@ public class MyDate {
 			return this;
 		}
 
-		setDate(year, month, day + 1); // trhows exeption on wrong day
+		setDate(year, month, day + 1); 
 		return this;
 	}
 
@@ -196,11 +189,11 @@ public class MyDate {
 		if (12 == month) {
 			// don't need to check day, jan and dec have 31 days
 			setDate(year + 1, 1, day);
-			// If wasn't valid setDate will throw excep
-
+		return this;
 		}
 		// returns daysInMonths value , if next month is feb and is leapyear
 		// adds 1
+		// month is not 12 or this method would end above.
 		int lastDayOfNextMonth = daysInMonths[month] + ((isLeapYear(year) && month == 1) ? 1 : 0);
 		if (day > lastDayOfNextMonth) { // if this
 			setDate(year, month + 1, lastDayOfNextMonth);
@@ -221,11 +214,8 @@ public class MyDate {
 		if (1 == day && 1 == month) {
 
 			setDate(year - 1, 1, 1);// If wasn't valid year this will throw
-									// excep
+									// exception
 			return this;
-
-			// min year reached exception and nextYear won't modify this object
-
 		}
 
 		if (1 == day) { // month >= 2

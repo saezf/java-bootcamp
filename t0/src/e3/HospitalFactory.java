@@ -9,13 +9,13 @@ import e3.Services.Surgery;
 import e3.Services.Therapy;
 
 
-
+//This calss doesn't implements factory pattern, at the beginning it was going to,I have to change the name to something else
 public class HospitalFactory {
 	private Hospital hospitaldeprueba = null;
 	
 	public Hospital getHospital(String[] services ) {
 	
-		 hospitaldeprueba = new Hospital("Some Hospitale");
+		 hospitaldeprueba = new Hospital("Some Hospital");
 		ServiceBuilder serviceBuilder = null;
 		for (String item : services) {
 			switch(item) {
