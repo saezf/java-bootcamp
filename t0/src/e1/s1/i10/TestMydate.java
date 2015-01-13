@@ -6,7 +6,7 @@ public class TestMydate {
 	public static void main(String[] args) {
 		
 
-		MyDate d1 = new MyDate(2013, 12, 31);
+		MyDate d1 = new MyDate(2013, 12, 31); 
 		System.out.println(d1);
 		System.out.println("Next day: " + d1.nextDay());
 		System.out.println("Previous day: " +d1.previousDay());

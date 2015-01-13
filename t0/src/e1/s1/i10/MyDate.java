@@ -108,7 +108,7 @@ public class MyDate {
 
 	public static int getDayOfWeek(int year, int month, int day) {
 
-		/*
+		/* 
 		 * I chose this method with the idea of adjust the day when calendar
 		 * past from julian to gregorian. But I'm getting behind with the
 		 * exercises, so it just gives you the day from gregorian calendar
