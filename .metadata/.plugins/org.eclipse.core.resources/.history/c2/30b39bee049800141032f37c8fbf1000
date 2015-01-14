@@ -1,7 +1,0 @@
-package com.bootcamp;
-
-public class TestMyPolynomial {        // save as "TestMyPolynomial.java"
-   public static void main(String[] args) {
-	   
-   }
-}

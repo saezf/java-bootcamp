@@ -1,7 +1,0 @@
-package com.bootcamp;
-
-public class MyComplexApp {        // save as "MyComplexApp.java"
-	public static void main(String[] args) {
-		   
-	}
-}
