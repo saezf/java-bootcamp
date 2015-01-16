@@ -10,11 +10,10 @@ public class App
 {
     public static void main( String[] args )
     {
-    	String inStr;
     	
     	Scanner in = new Scanner(System.in);
         System.out.println( "Insert your name: " );
-        inStr = in.next();
-        System.out.println( "Hello: " + inStr + "!" );
+        System.out.println( "Hello: " + in.next() + "!" );
+        in.close();
     }
 }
