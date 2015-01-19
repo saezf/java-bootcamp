@@ -20,13 +20,6 @@ public class Check {
 		if(i == 0){
 			return " dollars";
 		}else{
-			//If we use operations with double. For example: 9998.74
-			// We can subtract the integer part, by then multiply 100
-			// the result will be 73.99998 . Because that we work with strings
-/*			String amountStr = Double.toString(amount);
-			int pointPos = amountStr.indexOf(".");
-			String fractPart = amountStr.substring(pointPos +1, pointPos +3);*/
-			//return " and " + fractPart + "/100 dollars";
 			return " and " + i + "/100 dollars";
 		}
 	}
