@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 	
-public class _RomanConverterTest {
+public class _ConverterTest {
 	
 	private RomanNumber rn;
 	private ArabicNumber an;
