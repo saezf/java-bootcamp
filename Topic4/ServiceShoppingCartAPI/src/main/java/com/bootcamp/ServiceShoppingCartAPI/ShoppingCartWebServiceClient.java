@@ -5,8 +5,13 @@
 
 package com.bootcamp.ServiceShoppingCartAPI;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class ShoppingCartWebServiceClient implements ShoppingCartService {
+	
 	ShoppingCartService imp = new ShoppingCartImp();
 
 	public void removeItem(Item itemToRemove) {

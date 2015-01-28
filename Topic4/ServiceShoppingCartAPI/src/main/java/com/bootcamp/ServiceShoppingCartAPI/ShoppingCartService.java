@@ -5,6 +5,9 @@
 
 package com.bootcamp.ServiceShoppingCartAPI;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface ShoppingCartService {
 	
 	public void removeItem(Item itemToRemove);

@@ -11,7 +11,7 @@ public class UsingSpring {
 	
 	public static ShoppingCartService loadFromSpring() {
 		ApplicationContext context = new ClassPathXmlApplicationContext ("com/bootcamp/ServiceShoppingCartAPI/beans.xml");
-		return (ShoppingCartService) context.getBean("shoppingCartProxy");  
+		return (ShoppingCartService)context.getBean("shoppingCartProxy");  
 	}
 
 }
