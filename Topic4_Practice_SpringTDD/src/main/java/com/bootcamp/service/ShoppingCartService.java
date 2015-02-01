@@ -1,7 +1,13 @@
 package com.bootcamp.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface ShoppingCartService {
-	ArrayList<String> getAllItems();
+	String getItems();
+	void addItem(Product newProduct);
+	void removeItem(Product productToRemove);
+	List<Product> getListItems();
 }

@@ -2,23 +2,27 @@ package com.bootcamp.service;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
-import com.bootcamp.shoppingcart.ProductDetails;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService{
-	private ProductDetails listDetails = new ProductDetails();
+	private List<Product> itemList = new ArrayList<Product>();
 	
 	protected ShoppingCartServiceImpl(){}
 	
-	public ArrayList<String> getAllItems() {
-		return listDetails.getItems();
+	public String getItems() {
+		return itemList.toString();
 	}
 
-	public ProductDetails getListDetails() {
-		return listDetails;
+	public void addItem(Product newProduct) {
+		itemList.add(newProduct);
 	}
 
-	public void setListDetails(ProductDetails listDetails) {
-		this.listDetails = listDetails;
+	public void removeItem(Product productToRemove) {
+		itemList.remove(productToRemove);
+	}
+
+	public List<Product> getListItems() {
+		return itemList;
 	}
 }
