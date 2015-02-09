@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="MEETING")
 public class Meeting {
+	
 	@Id
 	@GeneratedValue
 	@Column(name="meeting_id")
