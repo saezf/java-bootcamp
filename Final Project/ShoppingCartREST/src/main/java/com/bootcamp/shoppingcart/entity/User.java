@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -46,17 +47,21 @@ public class User {
 	@Column(name = "password")
 	@NotNull
 	private String password;
+	@OneToMany
+	@JoinColumn(name="user_id", referencedColumnName="id")
+	private List<CreditCard> creditCard;
+
+	@OneToMany
+	@JoinColumn(name="user_id", referencedColumnName="id")
+	private List<ShoppingCart> shoppingCart;
 	
-	@OneToMany(mappedBy = "user")
-	private List<CreditCard> creditcard;
 	
 	public User() {
 	}
 
 	
-	
 	public User(String firstname, String lastname, String mail, String address,
-			String username, String password, List<CreditCard> creditcard) {
+			String username, String password, List<CreditCard> creditCard) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -64,7 +69,15 @@ public class User {
 		this.address = address;
 		this.username = username;
 		this.password = password;
-		this.creditcard = creditcard;
+		this.creditCard = creditCard;
+	}
+
+
+	/**
+	 * @param id2
+	 */
+	public User(long id) {
+		this.id = id;
 	}
 
 
@@ -154,16 +167,14 @@ public class User {
 
 
 	public List<CreditCard> getCreditcard() {
-		return creditcard;
+		return creditCard;
 	}
 
 
 
 	public void setCreditcard(List<CreditCard> creditcard) {
-		this.creditcard = creditcard;
+		this.creditCard = creditcard;
 	}
-	
-	
 	
 	
 }

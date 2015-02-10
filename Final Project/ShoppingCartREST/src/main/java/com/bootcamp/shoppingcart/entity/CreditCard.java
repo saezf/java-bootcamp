@@ -5,13 +5,10 @@ package com.bootcamp.shoppingcart.entity;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +19,7 @@ import javax.validation.constraints.NotNull;
  *
  */
 @Entity
+//@NamedQuery(name = "CreditCard.findByUserId", query = "SELECT p FROM CreditCard p WHERE p.user_id = ?1")
 @Table(name="creditcard")
 public class CreditCard {
 
@@ -46,14 +44,14 @@ public class CreditCard {
 	@NotNull
 	private String ownername;
 	
+	@Column(name = "user_id")
+	@NotNull
+	private int user_id;
+	
 	@Temporal(TemporalType.DATE)
 	@NotNull
 	private Date expdate;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
-	private User user;
-
 	public CreditCard() {
 
 	}
@@ -63,14 +61,14 @@ public class CreditCard {
 	}
 
 	public CreditCard(String brand, double number, String bank,
-			String ownername, Date expdate, User user) {
+			String ownername, Date expdate, int user_id) {
 		this.brand = brand;
 		this.number = number;
 		this.bank = bank;
 		this.ownername = ownername;
 		this.expdate = expdate;
-		this.user = user;
-	}
+		this.user_id = user_id;
+		}
 
 	public Long getId() {
 		return id;
@@ -120,16 +118,13 @@ public class CreditCard {
 		this.expdate = expdate;
 	}
 
-	public User getUser() {
-		return user;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
-	
-	
-	
-	
+
 	
 }

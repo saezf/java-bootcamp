@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -31,24 +32,27 @@ public class ProductLine {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	private Product product;
-
+	@NotNull
 	@Column(name = "quantity")
 	private int quantity;
-
+	@NotNull
 	@Column(name = "subtotal")
 	private double subTotal;
+	@NotNull
+	@Column(name="shoppingcart_id")
+	private int shoppingcart_id;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+/*	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "shoppingcart_id")
-	private ShoppingCart shoppingCart;
+	private ShoppingCart shoppingCart;*/
 
 	
 	public ProductLine(Product product, int quantity, double subTotal,
-			ShoppingCart shoppingCart) {
+			int shoppingcart_id) {
 		this.product = product;
 		this.quantity = quantity;
 		this.subTotal = subTotal;
-		this.shoppingCart = shoppingCart;
+		this.shoppingcart_id = shoppingcart_id;
 	}
 
 
@@ -101,14 +105,24 @@ public class ProductLine {
 	}
 
 
-	public ShoppingCart getShoppingCart() {
+	public int getShoppingcart_id() {
+		return shoppingcart_id;
+	}
+
+
+	public void setShoppingcart_id(int shoppingcart_id) {
+		this.shoppingcart_id = shoppingcart_id;
+	}
+
+
+/*	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
 	}
 
 
 	public void setShoppingCart(ShoppingCart shoppingCart) {
 		this.shoppingCart = shoppingCart;
-	}
+	}*/
 	
 	
 	

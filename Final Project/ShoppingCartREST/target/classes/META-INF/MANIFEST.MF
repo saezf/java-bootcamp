@@ -6,5 +6,5 @@ Implementation-Vendor-Id: com.bootcamp
 Build-Jdk: 1.8.0_25
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
-Main-Class: meetings.MeetingsApplication
+Main-Class: shoppingcart.ShoppingCartRestApplication
 

@@ -11,5 +11,6 @@ import com.bootcamp.shoppingcart.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 	public User findById(Long id);
 	public List<User> findAll(); 
+
 	
 }

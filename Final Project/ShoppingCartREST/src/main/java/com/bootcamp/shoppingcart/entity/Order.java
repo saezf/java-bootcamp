@@ -5,9 +5,9 @@ package com.bootcamp.shoppingcart.entity;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -49,9 +49,9 @@ public class Order {
 	@NotNull
 	private double total;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "shoppingcart_id")
-	private ShoppingCart shoppingCart;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "id",referencedColumnName="id")
+	private ShoppingCart shoppingcart;
 	
 	
 	public Order() {
@@ -69,7 +69,7 @@ public class Order {
 		this.paymentmethod = paymentmethod;
 		this.date = date;
 		this.total = total;
-		this.shoppingCart = shoppingcart;
+		this.shoppingcart = shoppingcart;
 	}
 
 
@@ -124,14 +124,15 @@ public class Order {
 
 
 	public ShoppingCart getShoppingcart() {
-		return shoppingCart;
+		return shoppingcart;
 	}
 
 
 	public void setShoppingcart(ShoppingCart shoppingcart) {
-		this.shoppingCart = shoppingcart;
+		this.shoppingcart = shoppingcart;
 	}
-	
+
+		
 		
 }
 

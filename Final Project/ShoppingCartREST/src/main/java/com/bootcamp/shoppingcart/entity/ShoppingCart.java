@@ -5,16 +5,14 @@ package com.bootcamp.shoppingcart.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -32,14 +30,24 @@ public class ShoppingCart {
 	@Column(name = "id")
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "shoppingCart")
-	private Order order;
+/*	@OneToOne(cascade = CascadeType.ALL, mappedBy = "shoppingCart")
+	private Order order;*/
 	
-	@OneToMany(mappedBy = "shoppingCart")
+	/*@OneToMany(mappedBy = "shoppingCart")
+	private List<ProductLine> productLine;*/
+	
+	@OneToMany
+	@JoinColumn(name="shoppingcart_id", referencedColumnName="id")
 	private List<ProductLine> productLine;
-  
+	
+	@NotNull
+	@Column(name="user_id")
+	public  int user_id;
+
+	
+/*	@NotNull
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")	
+	@JoinColumn(name = "user_id",referencedColumnName="id")	
 	private User user;
 	public User getUser() {
 		return user;
@@ -49,7 +57,7 @@ public class ShoppingCart {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+*/
 	public ShoppingCart() {
 	}
 
@@ -58,9 +66,9 @@ public class ShoppingCart {
 	}
 	
 	
-	public ShoppingCart(User user, List<ProductLine> productLine) {
+	public ShoppingCart(int user_id, List<ProductLine> productLine) {
 		this.productLine = productLine;
-		this.user = user;
+		this.user_id = user_id;
 	}
 
 
@@ -81,6 +89,22 @@ public class ShoppingCart {
 
 	public void setProductLine(List<ProductLine> productLine) {
 		this.productLine = productLine;
+	}
+
+	/*public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}*/
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	
